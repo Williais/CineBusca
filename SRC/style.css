@@ -8,6 +8,21 @@ body {
     color: #f5f5f5;
 }
 
+footer {
+    background-color: #202020;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    & p {
+        margin: 0;
+        font-size: 0.9em;
+        
+    }
+}
+
 h1{
     font-size: 2em;
     text-align: center;
@@ -47,5 +62,109 @@ h1{
     transition: background-color 0.3s ease;
     &:hover {
         background-color: #e0e0e0;
+    }
+}
+
+#results-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+}
+
+.card-Resultado {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    color: #141414;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.card-Resultado img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-Resultado h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.card-Resultado p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.card-Resultado .rating-container {
+    display: flex;
+
+    align-items: center;
+    margin-top: 10px;
+}
+
+.card-Resultado .ratingEstrela {
+    color: #f5c518;
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.card-Resultado .detalhesFilme {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+}
+
+.card-Resultado button {
+    background-color: #9b2323;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    #search-section {
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 400px;
+    }
+
+    #search-input {
+        width: 100%;
+    }
+
+    #results-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        max-width: 100%;
+    }
+
+    .card-Resultado {
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .card-Resultado img {
+        width: 100%;
     }
 }
