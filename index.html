@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineBusca</title>
+    <link rel="stylesheet" href="SRC/style.css">
+</head>
+<body>
+    <header>
+        <h1>CineBusca</h1>
+    </header>
+
+    <main>
+        <section id="search-section">
+            <input type="text" id="search-input" placeholder="Pesquise um filme...">
+            <button id="search-button"><ion-icon name="search"></ion-icon> Pesquisar</button>
+        </section>
+        <section id="results-section">
+            <h2>Resultados:</h2>
+            <div id="results-container">
+                <div class="card-Resultado">
+                    <div class="rating-container">
+                        <div class="ratingEstrela"></div>
+                    </div>
+                    <img src="https://via.placeholder.com/150" alt="Poster do Filme">
+                    <h3>Título do Filme</h3>
+                    <div class="detalhesFilme">
+                        <p>Gênero: Ação, Aventura</p>
+                        <p>Ano: 2023</p>
+                    </div>
+
+                    <p>Descrição do filme...</p>
+                    <button class="btnDetalhes">Detalhes</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Will ❤️</p>
+    </footer>
+    <script src="SRC/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

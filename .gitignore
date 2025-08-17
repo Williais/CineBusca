@@ -1,0 +1,3 @@
+//adicionando um arquivo .gitignore
+# Ignorar arquivos e pastas desnecessários
+.env
