@@ -1,4 +1,4 @@
-const apiKey = 'chave_da_api_aqui'
+const apiKey = 'chave da api'
 const apiUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&language=pt-BR&page=1'
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'
 
@@ -50,3 +50,44 @@ async function fetchFilmesPopulares() {
 
 fetchFilmesPopulares()
 
+// Pesquisar os filmes
+
+async function pesquisarFilmes(query){
+
+    containerResultados.innerHTML = '<p>Carregando...</p>'
+
+    try{
+
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=pt-BR&query=${encodeURIComponent(query)}&page=1&include_adult=false`
+
+        const response = await fetch(url)
+        const data = await response.json()
+        TelaFilme(data.results)
+
+    }catch (err){
+        console.error('Erro ao pesquisar filmes:', err)
+        containerResultados.innerHTML = '<h2>Erro ao pesquisar filmes. Tente novamente mais tarde.</h2>'
+    }
+}
+
+function eventoPesquisando() {
+
+
+    const nomeFilmePesquisado = inputPesquisar.value.trim()
+
+    if(nomeFilmePesquisado !== ''){
+
+        pesquisarFilmes(nomeFilmePesquisado)
+    }else{
+
+        fetchFilmesPopulares()
+    }
+}
+
+btnPesquisar.addEventListener('click', eventoPesquisando)
+
+inputPesquisar.addEventListener('keydown', (event) => {
+    if(event.key === "Enter"){
+        eventoPesquisando()
+    }
+})
