@@ -1,10 +1,14 @@
 const apiKey = 'chave da api'
-const apiUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&language=pt-BR&page=1'
+const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'
 
 const inputPesquisar = document.getElementById('search-input')
 const btnPesquisar = document.getElementById('search-button')
 const containerResultados = document.getElementById('results-container')
+
+const pageRandom = Math.floor(Math.random() * 500) + 1
+const apiUrlRandom = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=${pageRandom}`
+
 
 function TelaFilme (Filmes) {
     containerResultados.innerHTML = ''
@@ -23,7 +27,7 @@ function TelaFilme (Filmes) {
                 <div class="rating-container">
                     <div class="ratingEstrela">⭐ ${filme.vote_average.toFixed(1)}</div>
                 </div>
-                <img src="${filme.poster_path ? imageBaseUrl + filme.poster_path : 'https://via.placeholder.com/500x750.png?text=Poster+N%C3%A3o+Dispon%C3%ADvel'}" alt="Poster do Filme ${filme.title}">
+                <img src="${filme.poster_path ? imageBaseUrl + filme.poster_path : 'https://avatars.githubusercontent.com/u/45665895?v=4'}" alt="Poster do Filme ${filme.title}">
                 <h3>${filme.title}</h3>
                 <div class="detalhesFilme">
                     <p>Ano: ${dataLancamento}</p>
@@ -38,7 +42,7 @@ function TelaFilme (Filmes) {
 
 async function fetchFilmesPopulares() {
     try{
-        const url = apiUrl
+        const url = apiUrlRandom
         const response = await fetch(url)
         const data = await response.json()
         TelaFilme(data.results)
